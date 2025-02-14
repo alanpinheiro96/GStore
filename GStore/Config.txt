@@ -1,0 +1,27 @@
+##
+    Configuração do Git:
+        git config --global user.name AlanPinheiro96
+        git config --global user.email alantnt15@gmail.com
+##
+
+##
+    Passo para criação do projeto:
+        dotnet new sln --name GStore
+        dotnet new mvc -o GStore
+        dotnet sln add EagleStore\GStore.csproj
+##
+
+##
+    Instalando Pacotes:
+        1. Acessar https://www.nuget.org/
+        dotnet add package Microsoft.EntityFrameworkCore --version 9.0.2
+        dotnet add package Microsoft.EntityFrameworkCore.Design --version 9.0.2
+        dotnet add package Microsoft.EntityFrameworkCore.Tools --version 9.0.2
+        dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 9.0.2
+        dotnet add package MySql.EntityFrameworkCore --version 9.0.0
+##
+
+##
+    Passos projeto:
+        1. Criar as classes da camada de dados (Models)
+        
