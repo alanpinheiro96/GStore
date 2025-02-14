@@ -3,6 +3,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Conexão com o Banco de dados
+string conexao = builder.Configuration.GetConnectionString("GStoreConn");
+builder.Services.AddDbContext<AppDbContext>(
+    options => options.UseMySQL
+);
+
+// Configuração do Identity
+builder.Services.AddIdentity<Usuario, IdentityRole>(
+    options => options.SignIn.requireConfirmedEmail = false
+).AddEntityFrameworkStore<AppDbContext>()
+.AddDefaultTokenProviders();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
