@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EagleStore.Models;
+namespace GStore.Models;
 
-[Table("Categoria")]
+[Table("categoria")]
 public class Categoria
 {
     [Key]
@@ -11,11 +11,9 @@ public class Categoria
     public int Id { get; set; }
 
     [Required(ErrorMessage = "Por favor, informe o nome")]
-    [StringLenght(30, ErrorMessage = "O nome deve possuir no máximo 30 caracteres")]
+    [StringLength(30, ErrorMessage = "O nome deve possuir no máximo 30 caracteres")]
     public string Nome { get; set; }
 
-    [StringLenght(300)]
+    [StringLength(300)]
     public string Foto { get; set; }
-
-
 }
