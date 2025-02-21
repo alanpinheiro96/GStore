@@ -21,11 +21,11 @@ public class AppDbContext : IdentityDbContext<Usuario>
         #region Renomeação das tabelas do Identity
         builder.Entity<Usuario>().ToTable("usuario");
         builder.Entity<IdentityRole>().ToTable("perfil");
-        builder.Entity<IdentityUserRole<string>>().ToTable("usuario_perfil")
-        builder.Entity<IdentityUserToken<string>>().ToTable("usuario_token")
-        builder.Entity<IdentityUserClaim<string>>().ToTable("usuario_regra")
-        builder.Entity<IdentityUserLogin<string>>().ToTable("usuario_login")
-        builder.Entity<IdentityRoleClaim<string>>().ToTable("perfil_regra")    
+        builder.Entity<IdentityUserRole<string>>().ToTable("usuario_perfil");
+        builder.Entity<IdentityUserToken<string>>().ToTable("usuario_token");
+        builder.Entity<IdentityUserClaim<string>>().ToTable("usuario_regra");
+        builder.Entity<IdentityUserLogin<string>>().ToTable("usuario_login");
+        builder.Entity<IdentityRoleClaim<string>>().ToTable("perfil_regra");  
         #endregion
 
         #region Popular Categoria
@@ -60,7 +60,7 @@ public class AppDbContext : IdentityDbContext<Usuario>
                 ValorVenda = 900
             }
         };
-        builder.Entity<Produto>().HasData(produtos)
+        builder.Entity<Produto>().HasData(produtos);
         #endregion
         
         #region Usuario
@@ -123,12 +123,12 @@ public class AppDbContext : IdentityDbContext<Usuario>
             {
                 UserId = usuarios[0].Id,
                 RoleId = perfis[0].Id
-            }
+            },
             new IdentityUserRole<string>()
             {
                 UserId = usuarios[0].Id,
                 RoleId = perfis[1].Id
-            }
+            },
             new IdentityUserRole<string>()
             {
                 UserId = usuarios[0].Id,
@@ -137,5 +137,5 @@ public class AppDbContext : IdentityDbContext<Usuario>
         };
         builder.Entity<IdentityUserRole<string>>().HasData(usuarioPerfis);
         #endregion
-    
+    }
 }
