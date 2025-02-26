@@ -2,6 +2,9 @@
     Configuração do Git:
         git config --global user.name AlanPinheiro96
         git config --global user.email alantnt15@gmail.com
+        git config --global user.name BrunoSantosOliveira27
+        git config --global user.email bruunoosanntos@outlook.com
+
 ##
 
 ##
