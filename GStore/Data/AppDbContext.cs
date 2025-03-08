@@ -33,6 +33,5 @@ public class AppDbContext : IdentityDbContext<Usuario>
 
         AppDbSeed seed = new(builder);
 
-        
-    } 
+    }
 }
