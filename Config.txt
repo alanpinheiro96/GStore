@@ -34,3 +34,16 @@
         6. Executar o Xamp > MySql
         7. dotnet watch run
 ##
+
+dotnet codegenerator  (cria o codigo baseado naquilo que ja esta criado)
+dotnet tool install --global dotnet-aspnet-codegenerator --version 9.0.0
+
+dotnet aspnet-codegenerator -h
+
+dotnet aspnet-codegenerator controller -name CategoriasController --model Categoria --dataContext AppDbContext --layout "~/Views/Shared/_LayoutAdmin.cshtml" -outDir Controllers
+
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 9.0.0
+
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 9.0.2
+
+dotnet aspnet-codegenerator controller -name ProdutosController --model Produto --dataContext AppDbContext --layout "~/Views/Shared/_LayoutAdmin.cshtml" -outDir Controllers
