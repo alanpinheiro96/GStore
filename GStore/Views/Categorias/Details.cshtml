@@ -1,16 +1,16 @@
 @model GStore.Models.Categoria
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Categorias";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Details</h1>
+<h1 class="my-4">Categoria</h1>
+<h4 class="mb-4">Detalhes</h4>
 
-<div>
-    <h4>Categoria</h4>
-    <hr />
-    <dl class="row">
+<div class="card my-4 border-dark border-2 rounded-1">
+    <dl class="card-body">
+        
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Nome)
         </dt>
