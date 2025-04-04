@@ -32,8 +32,4 @@ public class RegistroVM
     public string ConfirmacaoSenha { get; set; }
 
     public IFormFile Foto { get; set; }
-
-    public bool Termos { get; set; } = false;
-
-    public bool Enviado { get; set; } = false;
 }
