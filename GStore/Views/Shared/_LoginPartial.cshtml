@@ -1,9 +1,13 @@
-@inject GStore.Services.IUsuarioService userService
+@using Microsoft.AspNetCore.Identity
+@inject GStore.Data.AppDbContext _db
+@inject SignInManager<Usuario> SignInManager
+@inject UserManager<Usuario> UserManager
 @{
-    var usuario = await userService.GetUsuarioLogado();
+    var user = UserManager.GetUserName(User);
+    var usuario = _db.Usuarios.FirstOrDefault(u => u.UserName == user);
 }
 
-@if (usuario == null)
+@if (!SignInManager.IsSignedIn(User))
 {
     <a asp-action="Login" asp-controller="Account" class="me-2">
         <img src="~/img/usuarios/no-photo.png" width="40" height="40" class="object-fit-cover rounded-5">
@@ -17,7 +21,7 @@ else
                 class="object-fit-cover rounded-5">
         </button>
         <ul class="dropdown-menu" style="position:absolute!important; margin-left: -200px!important; width:250px">
-            @if (usuario.IsAdmin)
+            @if (User.IsInRole("Administrador") || User.IsInRole("Funcionário"))
             {
                 <li>
                     <a class="dropdown-item" asp-action="Index" asp-controller="Home">

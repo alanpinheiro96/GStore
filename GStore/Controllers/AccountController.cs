@@ -95,9 +95,7 @@ public class AccountController : Controller
         return View(register);
     }
     
-    
-    
-    
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Registro(RegistroVM registro)
@@ -120,7 +118,7 @@ public class AccountController : Controller
 
                 await _userManager.AddToRoleAsync(usuario, "Cliente");
 
-                if(registro.Foto != null)
+                if (registro.Foto != null)
                 {
                     string nomeArquivo = usuario.Id + Path.GetExtension(registro.Foto.FileName);
                     string caminho = Path.Combine(_host.WebRootPath, @"img\usuarios");
@@ -141,6 +139,12 @@ public class AccountController : Controller
         }
         return View(registro);
     }
+
+    public IActionResult AccessDenied()
+    {
+        return View();
+    }
+    
     public bool IsValidEmail(string email)
     {
         
